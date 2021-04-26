@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom"; 
 
-import Renter from"./renter";
-import Home from"./home";
+import Renter from"./components/renter";
+import Home from"./components/home";
 
 
 function App() {
@@ -25,9 +25,9 @@ function App() {
             <img src="https://unsplash.it/200/200"/> 
           </div>
           <div className="menu">
+          <Link to="/">home</Link>
           <Link to="/renter">login</Link>
           <Link>Register</Link>
-          <Link to="/">home</Link>
           </div>
         </header>
 
