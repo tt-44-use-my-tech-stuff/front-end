@@ -42,3 +42,20 @@ code:before,
 code:after {
   content: '\`';
 }
+header {
+  position: relative;
+  height: 200px;
+  background: white;
+  text-align: center;
+  margin-bottom: 1em;
+  padding-top: 3em;
+}
+.menu{
+  display:flex;
+  justify-content: space-around;
+
+}
+#main{
+  display: flex;
+  justify-content: space-around;
+}
