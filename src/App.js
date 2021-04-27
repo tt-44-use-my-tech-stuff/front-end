@@ -3,9 +3,10 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom"; 
 
-import Renter from"./components/renter";
-import Home from"./components/home";
-
+import Renter from"./components/Renter";
+import Home from"./components/Home";
+import Owner from "./components/Owner";
+import LoginForm from "./components/LoginForm";
 
 function App() {
   const [date, setDate] = useState(null);
@@ -26,8 +27,8 @@ function App() {
           </div>
           <div className="menu">
           <Link to="/">home</Link>
-          <Link to="/renter">login</Link>
-          <Link>Register</Link>
+          <Link to="/login">login</Link>
+          <Link to="/owner">Register</Link>
           </div>
         </header>
 
@@ -35,6 +36,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home}/>
           <Route  exact path="/renter" component={Renter}/>
+          <Route exact path="/owner" component={Owner}/>
+          <Route exact path="/login" component={LoginForm}/>
         </Switch>
         </div>
       
