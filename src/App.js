@@ -8,6 +8,10 @@ import Home from"./components/Home";
 import Owner from "./components/Owner";
 import LoginForm from "./components/LoginForm";
 
+
+// luiza, alex and jessica worked on this
+//we just used one computer via parsec and vscode extention liveshare
+
 function App() {
   const [date, setDate] = useState(null);
   useEffect(() => {
@@ -28,7 +32,9 @@ function App() {
           <div className="menu">
           <Link to="/">home</Link>
           <Link to="/login">login</Link>
-          <Link to="/owner">Register</Link>
+          {/* <Link to="/owner">Register</Link> */}
+          <Link to="/owner">Owner's Page</Link>
+          <Link to="/renter">Renter's Page</Link>
           </div>
         </header>
 

@@ -1,8 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { axiosWithAuth } from "../helpers/axiosWithAuth";
+import {
+    Paper,
+    Box,
+    Grid,
+    TextField,
+    Typography,
+    Button,
+    IconButton
+    // makeStyles
+  } from "@material-ui/core";
+import { AccountCircle, Visibility, VisibilityOff } from "@material-ui/icons";
+import userStyles from "../styles/UserStyles";
+
 
 const Owner =()=>{
-
+    const classes = userStyles();
     const [itemData, setItemData]=useState([]);
     const [ownerData, setOwnerData] = useState([]);
     //getting data
@@ -36,19 +49,20 @@ const Owner =()=>{
     //edit takes us to unit 2 edit form
     //aesthetic
     return(
-        <div className="container">
+        <Grid container className={classes.root} spacing={2}>
             <h1>{ownerData.username}</h1> 
-
-            {itemData.map(res => {
-                return (
-                    <div className="ownerItems">
-                    <h1>{res.tech_item_title}</h1>
-                    <p>{res.tech_item_price}</p>
-                    <p>{res.tech_item_description}</p>
-                    </div>
-                )
-            })}
-        </div>
+            <Grid container classname={classes.bigbox} spacing={2} style={{color:"#4f4f4f", marginLeft:"25%"}}>    
+                {itemData.map(res => {
+                    return (
+                        <Box className={classes.box}>
+                            <h1>{res.tech_item_title}</h1>
+                            <p>{res.tech_item_price}</p>
+                            <p>{res.tech_item_description}</p>
+                        </Box>
+                    )
+                })}
+            </Grid>
+        </Grid>
     )
 
 }
