@@ -47,27 +47,15 @@ const LoginForm = () => {
 
   //onSubmit?
   const submit = (e) => {
+    console.log(values)
     e.preventDefault();
-    if (
-      values.username.match(/^\w{8,12}$/g) &&
-      values.password.match(/^[.\S]{8,12}$/g)
-    ) {
-      setValues(initialValues);
-      console.log(values);
       axios
-      .post('https://techstufflambda.herokuapp.com/api/auth/login', values)
+      .post('https://techstufflambda.herokuapp.com/auth/login', values)
       .then(res =>{
-        localStorage.setItem('token', res.action.payload);
-        push('/owner')
-      })
-    } else {
-      setValues(initialValues);
-      setHelperText({
-        username: "Invalid Username. Please try again.",
-        password: "Invalid Password. Please try again."
-      });
-      return;
-    }
+        window.localStorage.setItem('token', JSON.stringify(res.action.payload));
+        console.log(res)
+        push('/owner')})
+      .catch(err => console.log(err))
   };
 
   // inputs and submit buttons
