@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom"; 
-
+import './styles/HomeStyles.css'
 import Renter from"./components/Renter";
 import Home from"./components/Home";
 import Owner from "./components/Owner";
@@ -40,7 +40,7 @@ function App() {
 
  
         <Switch>
-          <Route exact path="/" component={TechItems}/>
+          <Route exact path="/" component={Home}/>
           <Route  exact path="/renter" component={Renter}/>
           <Route exact path="/owner" component={Owner}/>
           <Route exact path="/login" component={LoginForm}/>

@@ -56,7 +56,7 @@ const Renter =()=>{
       <Grid container className={classes.root} spacing={2}>
         {/* {renter.map(res=>{
           return(
-            <p>{res.username}</p>
+            <h1>{res.username}</h1>
           )
         })} */}
         <Grid container className={classes.bigbox} spacing={2} style={{color:"#4f4f4f", marginLeft:"25%"}}> 

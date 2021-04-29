@@ -11,8 +11,9 @@ import {
 import { AccountCircle, SettingsPowerRounded, Visibility, VisibilityOff } from "@material-ui/icons";
 import useStyles from "../styles/StylesSheet";
 import axios from "axios";
-import {useHistory} from "react-router-dom";
+import {connect} from"react-redux"
 import {loginNow} from "../action"
+import {useHistory} from "react-router-dom";
 
 //initial values
 const initialValues = {
@@ -33,7 +34,7 @@ const LoginForm = (props) => {
   const [helperText, setHelperText] = useState(initialHelperText);
   const [error, setError] = useState('')
   //push
- 
+ const {push}= useHistory();
 
   //view pass
   const handleShowPassword = (e) => {
@@ -49,8 +50,8 @@ const LoginForm = (props) => {
   //onSubmit?
   const submit = (e) => {
     e.preventDefault();
-    console.log(values)
     props.loginNow(values)
+    push("/owner")
     
   };
 
@@ -126,5 +127,10 @@ const LoginForm = (props) => {
     </>
   );
 };
+const mapStateToProps = state =>{
+  return({
+    error:state.error
+  })
+}
 
-export default LoginForm;
+export default connect(mapStateToProps, {loginNow})(LoginForm);
