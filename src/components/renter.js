@@ -1,38 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { axiosWithAuth } from "../helpers/axiosWithAuth";
 import axios from"axios";
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import { blue } from "@material-ui/core/colors";
-
-
-    const useStyles = makeStyles({
-    root: {
-    minWidth: 275,
-    },
-    bullet: {
-      display: 'inline-block',
-      margin: '0 2px',
-      transform: 'scale(0.8)',
-    },
-    title: {
-      fontSize: 14,
-    },
-    pos: {
-      marginBottom: 12,
-    },
-})
-
-
+import {
+  Paper,
+  Box,
+  Grid,
+  TextField,
+  Typography,
+  Button,
+  IconButton
+  // makeStyles
+} from "@material-ui/core";
+import userStyles from "../styles/UserStyles";
 
 const Renter =()=>{
 
     
-      const classes = useStyles();
+  const classes = userStyles();
   const bull = <span className={classes.bullet}>•</span>;
       
 
@@ -46,6 +30,7 @@ const Renter =()=>{
         .then(res =>{
             console.log(res.data);
             setRenter(res.data);
+        
         })
         .catch(err => console.log(err))
         
@@ -57,6 +42,7 @@ const Renter =()=>{
         .then(res =>{
             //console.log(res.data);
             setItemData(res.data);
+            console.log(res)
         })
         .catch(err => console.log(err))
         
@@ -66,39 +52,25 @@ const Renter =()=>{
       
     // }
     return(
-        <div className="container">
-            {renter.map(res =>{
-                return <p>{res.username}</p>
-            })}
-            {itemData.map(res =>{
-                return (
-                    <Card className={classes.root}>
-      <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-          {res.tech_item_title}
-        </Typography>
-        <Typography variant="h5" component="h2">
-          {res.tech_item_price}
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          {res.tech_item_description}
-        </Typography>
-        <Typography variant="body2" component="p">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
-                   
-                )
-            })}
-            
-       
-        </div>
+
+      <Grid container className={classes.root} spacing={2}>
+        {/* {renter.map(res=>{
+          return(
+            <p>{res.username}</p>
+          )
+        })} */}
+        <Grid container className={classes.bigbox} spacing={2} style={{color:"#4f4f4f", marginLeft:"25%"}}> 
+          {itemData.map(res=>{
+            return (
+              <Box className={classes.box}>
+                  <h1>{res.tech_item_title}</h1>
+                  <p>{res.tech_item_price}</p>
+                  <p>{res.tech_item_description}</p>
+              </Box>
+            )
+          })}
+        </Grid>
+      </Grid>
     )
 
 }

@@ -7,7 +7,7 @@ import Renter from"./components/Renter";
 import Home from"./components/Home";
 import Owner from "./components/Owner";
 import LoginForm from "./components/LoginForm";
-
+import TechItems from "./components/TechItems";
 
 // luiza, alex and jessica worked on this
 //we just used one computer via parsec and vscode extention liveshare
@@ -40,7 +40,7 @@ function App() {
 
  
         <Switch>
-          <Route exact path="/" component={Home}/>
+          <Route exact path="/" component={TechItems}/>
           <Route  exact path="/renter" component={Renter}/>
           <Route exact path="/owner" component={Owner}/>
           <Route exact path="/login" component={LoginForm}/>

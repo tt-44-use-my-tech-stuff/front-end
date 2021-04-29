@@ -8,10 +8,11 @@ import {
   IconButton
   // makeStyles
 } from "@material-ui/core";
-import { AccountCircle, Visibility, VisibilityOff } from "@material-ui/icons";
+import { AccountCircle, SettingsPowerRounded, Visibility, VisibilityOff } from "@material-ui/icons";
 import useStyles from "../styles/StylesSheet";
 import axios from "axios";
 import {useHistory} from "react-router-dom";
+import {loginNow} from "../action"
 
 //initial values
 const initialValues = {
@@ -24,15 +25,15 @@ const initialHelperText = {
   password: ""
 };
 
-const LoginForm = () => {
+const LoginForm = (props) => {
   const classes = useStyles();
   //set state
   const [showPassword, setShowPassword] = useState(false);
   const [values, setValues] = useState(initialValues);
   const [helperText, setHelperText] = useState(initialHelperText);
-
+  const [error, setError] = useState('')
   //push
-  const {push} = useHistory();
+ 
 
   //view pass
   const handleShowPassword = (e) => {
@@ -47,15 +48,10 @@ const LoginForm = () => {
 
   //onSubmit?
   const submit = (e) => {
-    console.log(values)
     e.preventDefault();
-      axios
-      .post('https://techstufflambda.herokuapp.com/auth/login', values)
-      .then(res =>{
-        window.localStorage.setItem('token', JSON.stringify(res.action.payload));
-        console.log(res)
-        push('/owner')})
-      .catch(err => console.log(err))
+    console.log(values)
+    props.loginNow(values)
+    
   };
 
   // inputs and submit buttons
@@ -121,6 +117,8 @@ const LoginForm = () => {
               >
                 Login
               </Button>
+             {error ? <p>{error}</p>: <p></p> }
+
             </Grid>
           </form>
         </Paper>

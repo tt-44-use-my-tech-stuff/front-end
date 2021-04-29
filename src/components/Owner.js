@@ -10,7 +10,6 @@ import {
     IconButton
     // makeStyles
   } from "@material-ui/core";
-import { AccountCircle, Visibility, VisibilityOff } from "@material-ui/icons";
 import userStyles from "../styles/UserStyles";
 
 
@@ -24,9 +23,8 @@ const Owner =()=>{
     //THE OWNER
     useEffect(()=>{
         axiosWithAuth()
-        .get('https://techstufflambda.herokuapp.com/api/users')
+        .get('/api/tech_items')
         .then(res =>{
-            // console.log(res.data);
             setOwnerData(res.data);
         })
     })
@@ -50,8 +48,8 @@ const Owner =()=>{
     //aesthetic
     return(
         <Grid container className={classes.root} spacing={2}>
-            <h1>{ownerData.username}</h1> 
-            <Grid container classname={classes.bigbox} spacing={2} style={{color:"#4f4f4f", marginLeft:"25%"}}>    
+            {/* <h1>{ownerData.username}</h1>  */}
+            <Grid container className={classes.bigbox} spacing={2} style={{color:"#4f4f4f", marginLeft:"25%"}}>    
                 {itemData.map(res => {
                     return (
                         <Box className={classes.box}>

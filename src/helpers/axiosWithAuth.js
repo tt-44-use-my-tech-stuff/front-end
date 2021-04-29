@@ -7,7 +7,7 @@ export const axiosWithAuth = () =>{
             headers:{
               Authorization: JSON.parse(window.localStorage.getItem('token')),
             },
-            baseURL: "https://techstufflambda.herokuapp.com",
+            baseURL: "https://use-my-tech-stuff-backend-1.herokuapp.com",
           }
           
     )
