@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Paper,
   Grid,
@@ -8,9 +8,11 @@ import {
   IconButton
   // makeStyles
 } from "@material-ui/core";
-import { AccountCircle, Visibility, VisibilityOff } from "@material-ui/icons";
+import { AccountCircle, SettingsPowerRounded, Visibility, VisibilityOff } from "@material-ui/icons";
 import useStyles from "../styles/StylesSheet";
 import axios from "axios";
+import {connect} from"react-redux";
+import {loginNow} from "../action"
 import {useHistory} from "react-router-dom";
 
 //initial values
@@ -24,15 +26,15 @@ const initialHelperText = {
   password: ""
 };
 
-const LoginForm = () => {
+const LoginForm = (props) => {
   const classes = useStyles();
   //set state
   const [showPassword, setShowPassword] = useState(false);
   const [values, setValues] = useState(initialValues);
   const [helperText, setHelperText] = useState(initialHelperText);
-
+  const [error, setError] = useState('')
   //push
-  const {push} = useHistory();
+ const {push}= useHistory();
 
   //view pass
   const handleShowPassword = (e) => {
@@ -45,18 +47,25 @@ const LoginForm = () => {
     setValues({ ...values, [name]: value });
   };
 
+
   //onSubmit?
   const submit = (e) => {
-    console.log(values)
     e.preventDefault();
-      axios
-      .post('https://techstufflambda.herokuapp.com/auth/login', values)
-      .then(res =>{
-        window.localStorage.setItem('token', JSON.stringify(res.action.payload));
-        console.log(res)
-        push('/owner')})
-      .catch(err => console.log(err))
+    props.loginNow(values);
   };
+
+  useEffect(()=>{
+    if(props.userType){
+      if(props.userType === "owner"){
+        push('/owner')
+      }
+      else{
+        push('/renter')
+      }
+    }
+  }, props.userType)
+
+  
 
   // inputs and submit buttons
   return (
@@ -121,6 +130,8 @@ const LoginForm = () => {
               >
                 Login
               </Button>
+             {error ? <p>{error}</p>: <p></p> }
+
             </Grid>
           </form>
         </Paper>
@@ -128,5 +139,11 @@ const LoginForm = () => {
     </>
   );
 };
+const mapStateToProps = state =>{
+  return({
+    username:state.username,
+    userType:state.userType
+  })
+}
 
-export default LoginForm;
+export default connect(mapStateToProps, {loginNow})(LoginForm);

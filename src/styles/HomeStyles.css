@@ -1,0 +1,191 @@
+
+/*  britt's reset styles  */
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin:0;
+    max-width: 100%;
+    /* border: 1px solid rgb(240, 14, 14); */
+}
+        /* General Styles */
+html{
+    font-size:62.5%;   
+}
+body{
+    font-size: 1.8rem;
+    line-height: 1.5;
+    color: #4F4F4F;
+    font-family: 'PT Sans', sans-serif;
+        /*Background Image*/
+    background-image: url(https://images.unsplash.com/photo-1593687395549-400945fed803?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80) ;
+    background-size: cover;
+    background-repeat: none;
+    background-position: center top;
+}
+h1,h2,h3,h4{
+    letter-spacing: 3px;
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+}
+h1{
+    font-size: 5rem;
+   
+}
+h2{
+    font-size: 3rem;
+}
+a{
+    text-decoration: none; /*Still not removing text deco!!!:c */
+   color:white;
+
+   
+}
+a:hover{
+    /* color: rgb(255, 77, 130); */
+    text-transform: uppercase;
+    transition: all 0.9s ease-in-out;
+
+}
+/* ------Reset Finish------- */
+
+
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #10193fd3;
+    align-items: flex-start; 
+    height: 12vh;
+    padding-bottom:15px;
+    
+
+}
+
+
+
+.nav-logo {
+    width: 40%;
+    margin-top: -60px;
+    display: flex;
+    align-items: center;
+    
+    
+}
+
+.nav-logo h2 {
+    width: 45%;
+    
+}
+
+.title {
+    margin-top: 7vh;
+    color:white;
+    font-family: copperplate;
+    text-transform: uppercase;
+    font-size: 40px;
+
+
+    
+}
+
+.nav img {
+    width:30%;
+    border-radius: 50%;
+    /* margin-left: 5%;
+    margin-right: 5%; */
+}
+
+.menu a{
+    width: 25%;
+    height: 30%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    color: white;
+    margin-left: 20%;  
+    
+}
+.menu{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+#main {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 15% 3% 1%;
+    
+}
+
+button {
+    width: 20%;
+    padding: 5%;
+    margin: 5%;
+    color: #4f4f4f;
+    background-color: rgba(255, 255, 255, 0.76);
+    border-radius: 5%;
+    text-transform: uppercase;
+ 
+   
+}
+
+button p{
+    width: 100%;
+    margin: 10% 0 0 -3%;
+    font-family: fantasy;
+    font-size: 1em;
+    
+    /* border: 2px solid green; */
+    display: inline-block;
+    
+
+}
+
+button:hover{
+    background-color:  rgba(255, 255, 255, 0.932);
+    box-shadow: 10px 4px 10px 4px rgba(231, 67, 246, 0.514);
+    transition: all 0.1s ease-in-out;
+
+}
+
+footer {
+    /*Original color below: */
+    /* background-color: #39adef; */
+    background-color: #10193f;
+    color: white;
+    text-align: center;
+    margin-top: 20%;
+}
+
+.cta {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: #29116db4;
+    width:100%;
+    margin-top: 12%;
+}
+
+.ctaText{
+    padding: 3%;
+    width:50%;
+    color: #fff;
+    align-self: center;
+    text-align: center;
+    
+}
+
+.droneImg{
+    width: 50%;
+}
+
+.ctaH2{
+    padding-bottom: 2%;
+}
+
+

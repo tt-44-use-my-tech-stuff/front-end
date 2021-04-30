@@ -5,59 +5,70 @@ import SurroundSoundIcon from '@material-ui/icons/SurroundSound';
 import VideoLabelIcon from '@material-ui/icons/VideoLabel';
 import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import { CenterFocusStrong } from "@material-ui/icons";
+
 const home = ()=>{
 return (
     <div>
+   
+ 
 
-    
     <div id="main">
-
+       <section className='cta'>
+         <div className="ctaText">
+          <h2 className='ctaH2' >Use My Tech </h2> 
+          <h4>Our mission is to offer a digital marketplace where anyone can rent the newest technology. With Use My Tech Stuff, you can <u>Rent Before You Buy,</u> promoting and enabling beginners or experienced techies to broaden their horizons at more accesible price. </h4>
+         </div>
+         <img className= 'droneImg' src="https://images.unsplash.com/photo-1469313785555-277fa0c1dc9e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80"/>
+     
+    </section>
+       
     <button className="camera">
-    <CameraAltIcon/>
-      <h2>
-        camera
-      </h2>
+      <CameraAltIcon className="iconImg" style={{ fontSize: 60 }} />
+      <p>
+        Camera
+      </p>
     </button>
 
     <button className="sound">
-    <SurroundSoundIcon/>
-      <h2>
-        sound
-      </h2>
+      <SurroundSoundIcon className="iconImg" style={{ fontSize: 60 }} />
+      <p>
+        Sound
+      </p>
     </button>
 
 
   <button className="visual">
-    <VideoLabelIcon/>
-      <h2>
-        visual
-      </h2>
+    <VideoLabelIcon  className="iconImg" style={{ fontSize: 60 }}  />
+      <p>
+        Visual
+      </p>
     </button>
 
     <button className="gaming">
-    <SportsEsportsIcon/>
-      <h2>
-        gaming
-      </h2>
+      <SportsEsportsIcon  className="iconImg"style={{ fontSize: 60 }} />
+      <p>
+        Gaming
+      </p>
     </button>
 
     <button className="computer">
-    <LaptopIcon/>
-      <h2>
-        computer
-      </h2>
+      <LaptopIcon className="iconImg"style={{ fontSize: 60 }} />
+      <p>
+        Computer
+      </p>
     </button>
 
     <button className="other">
-    <MoreHorizIcon/>
-      <h2>
-      other
-      </h2>
+    <MoreHorizIcon className="iconImg"style={{ fontSize: 60 }} />
+      <p>
+      Other
+      </p>
     </button>
   </div>
   <footer>
     
-    <h1> copyright</h1>
+    <h2> Copyright</h2>
     
     <address>     
     Written by <a href="mailto:webmaster@example.com">Jon Doe</a>.<br/> 
@@ -73,4 +84,4 @@ return (
   
 )
 }
-export default home;
+export default home
