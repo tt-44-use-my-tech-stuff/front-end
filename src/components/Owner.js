@@ -1,15 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { axiosWithAuth } from "../helpers/axiosWithAuth";
-import axios from "axios";
 import {
-    Paper,
     Box,
-    Grid,
-    TextField,
-    Typography,
-    Button,
-    IconButton
-    // makeStyles
+    Grid
   } from "@material-ui/core";
 import userStyles from "../styles/UserStyles";
 // import {ownerData} from "../action";
@@ -52,14 +45,11 @@ const Owner =(props)=>{
             <Grid container className={classes.bigbox} spacing={2} style={{color:"#4f4f4f", marginLeft:"25%"}}>    
                 
                 {itemData.map(res => {
-                    // console.log("owner res => " + res.owner_id);
                     if(props.userId===res.owner_id){
-                        console.log("owner id" + res.tech_item_id);
-                        console.log("action rent id owner:" + props.rentedId);
                         if((res.tech_item_id===props.rentedId)&&props.isRented===true)
                         {
                             return (
-                                <Box className={classes.box}>
+                                <Box  key={res.tech_item_id}  className={classes.box}>
                                     <h1>{res.tech_item_title}</h1>
                                     <p>{res.tech_item_price}</p>
                                     <p>{res.tech_item_description}</p>
@@ -72,24 +62,26 @@ const Owner =(props)=>{
                                 </Box>
                             )
                         }
-                        // console.log("yay we have an item!")
                         else
                         {
                             return (
-                                <Box className={classes.box}>
+                                <Box key={res.tech_item_id} className={classes.box}>
                                     <h1>{res.tech_item_title}</h1>
                                     <p>{res.tech_item_price}</p>
                                     <p>{res.tech_item_description}</p>
                                     <button onClick={()=> {
-                                        push('./Edit');
                                         props.loadItemData(res.tech_item_id);
+                                        push('/Edit');
                                     }}>Edit Item</button>
                                     <button onClick={()=> props.deleteItem(res.tech_item_id, res.owner_id)}>Delete Item</button>
                                 </Box>
                             )
                         }
-                    }
-                })}
+                 }else {
+                     return(
+                     console.log("else"))
+                 }
+            })}
             </Grid>
         </Grid>
     )

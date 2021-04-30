@@ -8,9 +8,8 @@ import {
   IconButton
   // makeStyles
 } from "@material-ui/core";
-import { AccountCircle, SettingsPowerRounded, Visibility, VisibilityOff } from "@material-ui/icons";
+import { AccountCircle, Visibility, VisibilityOff } from "@material-ui/icons";
 import useStyles from "../styles/StylesSheet";
-import axios from "axios";
 import {connect} from"react-redux";
 import {loginNow} from "../action"
 import {useHistory} from "react-router-dom";
@@ -32,7 +31,10 @@ const LoginForm = (props) => {
   const [showPassword, setShowPassword] = useState(false);
   const [values, setValues] = useState(initialValues);
   const [helperText, setHelperText] = useState(initialHelperText);
-  const [error, setError] = useState('')
+  const [error] = useState('')
+  const usernameValidate = values.username.match(/^\w{3,15}$/g);
+  const passwordValidate = values.password.match(/^[.\S]{3,15}$/g);
+
   //push
  const {push}= useHistory();
 
@@ -51,8 +53,23 @@ const LoginForm = (props) => {
   //onSubmit?
   const submit = (e) => {
     e.preventDefault();
-    props.loginNow(values);
+    const newUser = {
+      username: values.username.trim(),
+      password: values.password.trim(),
+      role_id:  parseInt(values.role_id)
+    };
+
+    if (usernameValidate && passwordValidate ) {
+      props.loginNow(newUser);
+    } else {
+      setHelperText({
+        username: "Please enter a username between 3 and 15 characters long",
+        password: "Please enter a password between 3 and 15 characters long",
+      });
+    }
   };
+    
+
 
   useEffect(()=>{
     if(props.userType){
@@ -63,7 +80,8 @@ const LoginForm = (props) => {
         push('/renter')
       }
     }
-  }, props.userType)
+  }, [props.userType])
+  
 
   
 
