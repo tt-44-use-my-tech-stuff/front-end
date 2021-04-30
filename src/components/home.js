@@ -15,14 +15,14 @@ return (
     <div id="main">
 
     <button className="camera">
-    <CameraAltIcon/>
+    <CameraAltIcon  style={{ fontSize: 60 }}/>
       <h2>
         camera
       </h2>
     </button>
 
     <button className="sound">
-    <SurroundSoundIcon/>
+    <SurroundSoundIcon style={{ fontSize: 60 }}/>
       <h2>
         sound
       </h2>
@@ -30,28 +30,28 @@ return (
 
 
   <button className="visual">
-    <VideoLabelIcon/>
+    <VideoLabelIcon style={{ fontSize: 60 }}/>
       <h2>
         visual
       </h2>
     </button>
 
     <button className="gaming">
-    <SportsEsportsIcon/>
+    <SportsEsportsIcon style={{ fontSize: 60 }}/>
       <h2>
         gaming
       </h2>
     </button>
 
     <button className="computer">
-    <LaptopIcon/>
+    <LaptopIcon style={{ fontSize: 60 }}/>
       <h2>
         computer
       </h2>
     </button>
 
     <button className="other">
-    <MoreHorizIcon/>
+    <MoreHorizIcon style={{ fontSize: 60 }}/>
       <h2>
       other
       </h2>

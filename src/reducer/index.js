@@ -1,45 +1,42 @@
-import {LOAD_OWNER_DATA, 
-        LOAD_RENTER_DATA, 
+import {CLEAR_STATE, 
         LOAD_ITEM_DATA, 
+        DELETE_ITEM,
         LOGIN} from "../action";
 
 export const initialState = {
-    renter:[],
-    owner:[],
-    itemData:[],
-    username:"",
-    password:"",
-    userType:""
+    username:'',
+    userType:'',
+    userId:0,
+    itemData:{}
 }
 
-const reducer = (state= initialState, action) =>
+const reducer = (state = initialState, action) =>
 {
     switch(action.type)
     {
-        case LOAD_OWNER_DATA:
-            return{
+        case CLEAR_STATE:
+            return {
                 ...state,
-                owner:[...state.owner, action.payload]
-            }
-
-        case LOAD_RENTER_DATA:
-            return{
-                ...state,
-                renter:[...state.renter, action.payload]
-            }
+                userType:null
+            };
 
         case LOAD_ITEM_DATA:
             return{
                 ...state,
-                itemData:[...state.itemData, action.payload]
+                itemData:action.payload
             }
 
         case LOGIN:
             return{
+                username: action.payload.username,
+                userType: action.payload.role_name,
+                userId: action.payload.user_id
+            }
+
+        case DELETE_ITEM:
+            return{
                 ...state,
-                username:action.payload,
-                password:action.payload,
-                userType:action.payload,
+                itemData:{}
             }
 
         default:

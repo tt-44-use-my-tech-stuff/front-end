@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Paper,
   Grid,
@@ -11,7 +11,7 @@ import {
 import { AccountCircle, SettingsPowerRounded, Visibility, VisibilityOff } from "@material-ui/icons";
 import useStyles from "../styles/StylesSheet";
 import axios from "axios";
-import {connect} from"react-redux"
+import {connect} from"react-redux";
 import {loginNow} from "../action"
 import {useHistory} from "react-router-dom";
 
@@ -47,13 +47,25 @@ const LoginForm = (props) => {
     setValues({ ...values, [name]: value });
   };
 
+
   //onSubmit?
   const submit = (e) => {
     e.preventDefault();
-    props.loginNow(values)
-    push("/owner")
-    
+    props.loginNow(values);
   };
+
+  useEffect(()=>{
+    if(props.userType){
+      if(props.userType === "owner"){
+        push('/owner')
+      }
+      else{
+        push('/renter')
+      }
+    }
+  }, props.userType)
+
+  
 
   // inputs and submit buttons
   return (
@@ -129,7 +141,8 @@ const LoginForm = (props) => {
 };
 const mapStateToProps = state =>{
   return({
-    error:state.error
+    username:state.username,
+    userType:state.userType
   })
 }
 

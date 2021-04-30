@@ -5,7 +5,7 @@
     padding: 0;
     margin:0;
     max-width: 100%;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
         /* General Styles */
 html{
@@ -92,7 +92,7 @@ header {
     justify-content: space-evenly;
     align-items: flex-start;
     color: white;
-    color: #39adef;
+   
 }
 
 #main {
@@ -114,8 +114,8 @@ button {
 
 button:hover{
     background-color:  rgba(255, 255, 255, 0.932);
-    
-    transition: all 0.2s ease-in-out;
+    box-shadow: 10px 4px 10px 4px rgba(231, 67, 246, 0.514);
+    transition: all 0.1s ease-in-out;
 
 }
 
@@ -126,4 +126,31 @@ footer {
     color: white;
     text-align: center;
     margin-top: 20%;
+}
+
+.cta {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: #29116db4;
+    
+    margin-top: 8%;
+}
+
+.ctaText{
+    padding: 3%;
+    margin-top: -5%;
+    width:50%;
+    color: #fff;
+    align-self: center;
+    text-align: center;
+    
+}
+
+.droneImg{
+    width: 50%;
+}
+
+.ctaH2{
+    padding-bottom: 2%;
 }
