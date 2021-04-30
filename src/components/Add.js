@@ -31,7 +31,7 @@ const defaultValues = {
 
 const defaultErrors = {
   name: "",
-  price: 0,
+  price: "",
   rentalPeriodMin: 0,
   rentalPeriodMax: 0,
   category: "",

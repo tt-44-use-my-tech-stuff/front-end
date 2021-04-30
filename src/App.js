@@ -2,8 +2,8 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom"; 
 import './styles/HomeStyles.css'
-import Renter from"./components/Renter";
-import Home from"./components/Home";
+import Renter from"./components/renter";
+import Home from"./components/home";
 import Owner from "./components/Owner";
 import LoginForm from "./components/LoginForm";
 import TechItems from "./components/TechItems";
@@ -36,16 +36,19 @@ function App(props) {
       <div>
      
         <header className="nav">
-          <div >
-            <img src="https://i.ibb.co/Bs03hDk/download.png" style={{width:"80px" }}/> 
+            <div className='nav-logo'>
+            <div>
+              <img src="https://i.ibb.co/Bs03hDk/download.png" /> 
+            </div>
+            <h2 className='title'>Use My Tech</h2>
           </div>
           <div className="menu">
-          <Link to="/">home</Link>
-          <Link to="/login">login</Link>
+          <Link to="/">Home</Link>
+          <Link to="/login">Login</Link>
           {/* <Link to="/owner">Register</Link> */}
           <Link to="/Add">Add Page</Link>
           <Link to="/SignUp">SignUp Page</Link>
-          <Link to="/login" onClick={logoutFunc}>logout</Link>
+          <Link to="/" onClick={logoutFunc}>Logout</Link>
       
           </div>
         </header>

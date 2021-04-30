@@ -42,10 +42,10 @@ const Renter =(props)=>{
 
   console.log("props: ")
   console.log(props)
-  const rent = (itemId)=>{
+  const rent = (itemId,renter)=>{
     // console.log("rent res", itemId);
     // setIsRented(!isRented);
-    props.rentingState(itemId);
+    props.rentingState(itemId, renter);
     console.log("action rent id:" + props.rentedId);
     console.log("item rent id:"+ itemId);
     console.log("is reted bool: " + props.isRented);
@@ -67,7 +67,7 @@ const Renter =(props)=>{
                 <Box className={classes.box}>
                     <h1>{res.tech_item_title}</h1>
                     <p>{res.tech_item_price}</p>
-                    <button onClick={()=>{rent(res.tech_item_id)}} style={{backgroundColor:"#6c8abd"}}>Rented</button>
+                    <button onClick={()=>{rent(res.tech_item_id, props.renterId)}} style={{backgroundColor:"#6c8abd"}}>Rented</button>
                     <p>{res.tech_item_description}</p>
                 </Box>
               )
