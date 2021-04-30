@@ -15,6 +15,7 @@ import {
 import { AccountCircle, Visibility, VisibilityOff } from "@material-ui/icons";
 import useStyles from "../styles/StylesSheet";
 import axios from 'axios';
+import { useHistory } from "react-router";
 const initialFormValues = {
   username: "",
   password: "",
@@ -32,6 +33,7 @@ const RegistrationForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [helperText, setHelperText] = useState(initialHelperText);
   const [formValues, setFormValues] = useState(initialFormValues);
+  const {push} = useHistory()
   //stylesheet
   const classes = useStyles();
   //error/helper text validation
@@ -61,6 +63,7 @@ const RegistrationForm = () => {
       .post('https://use-my-tech-stuff-backend-1.herokuapp.com/api/auth/register', newUser)
       .then(res =>{
           console.log(res.data)
+          push("/login")
       })
       .catch(err =>{console.log(err.response)})
     } else {
