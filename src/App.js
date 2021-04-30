@@ -1,12 +1,11 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom"; 
 import './styles/HomeStyles.css'
 import Renter from"./components/renter";
 import Home from"./components/home";
 import Owner from "./components/Owner";
 import LoginForm from "./components/LoginForm";
-import TechItems from "./components/TechItems";
 import Add from"./components/Add";
 import Edit from"./components/Edit";
 import SignUp from"./components/SignUp";
@@ -17,19 +16,18 @@ import {connect} from"react-redux"
 //we just used one computer via parsec and vscode extention liveshare
 
 function App(props) {
-  const [date, setDate] = useState(null);
-  useEffect(() => {
-    async function getDate() {
-      const res = await fetch('/api/date');
-      const newDate = await res.text();
-      setDate(newDate);
-    }
-    getDate();
-  }, []);
+  // const [date, setDate] = useState(null);
+  // useEffect(() => {
+  //   async function getDate() {
+  //     const res = await fetch('/api/date');
+  //     const newDate = await res.text();
+  //     setDate(newDate);
+  //   }
+  //   getDate();
+  // }, []);
   const logoutFunc = ()=> {
     window.localStorage.removeItem("token");
     props.clearState();
-
   }
   return (
     <Router>
@@ -38,7 +36,7 @@ function App(props) {
         <header className="nav">
             <div className='nav-logo'>
             <div>
-              <img src="https://i.ibb.co/Bs03hDk/download.png" /> 
+              <img src="https://i.ibb.co/Bs03hDk/download.png" alt="done" /> 
             </div>
             <h2 className='title'>Use My Tech</h2>
           </div>

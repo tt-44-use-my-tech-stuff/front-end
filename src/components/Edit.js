@@ -10,15 +10,11 @@ import {
   InputLabel,
   MenuItem,
   FormControl
-  // makeStyles
 } from "@material-ui/core";
-import { Visibility, VisibilityOff } from "@material-ui/icons";
 import MonetizationOnIcon from "@material-ui/icons/MonetizationOn";
 import useStyles from "../styles/StylesSheet";
 import {axiosWithAuth} from "../helpers/axiosWithAuth";
 import { connect } from "react-redux";
-import {useHistory} from "react-router-dom";
-import {loadItemData} from "../action";
 
 const defaultErrors = {
   name: "",
@@ -54,8 +50,6 @@ const EditItem = (state) => {
     };
 
     if (state.itemData != null){
-        // console.log(" inside if")
-        // console.log(state.itemData.tech_item_title)
         defaultValues = 
         {
             name:state.itemData.tech_item_title,
@@ -83,7 +77,6 @@ const EditItem = (state) => {
     const nameValidate = values.name.match(/^\w{2,15}$/g);
     const priceValidate = values.price.match(/^\w{1,10}$/g);
     const descriptionValidate = values.description.match(/^\w{2,30}$/g);
-    const {push} = useHistory()
 
     const onChange = (evt) => {
         const { name, value } = evt.target;
@@ -273,7 +266,7 @@ const mapStateToProps = state =>{
    
 }
 
-export default connect(mapStateToProps)(EditItem);
+export default connect(mapStateToProps,{})(EditItem);
 
 
 // category_id: 1

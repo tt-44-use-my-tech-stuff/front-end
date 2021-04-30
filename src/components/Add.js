@@ -10,14 +10,11 @@ import {
   InputLabel,
   MenuItem,
   FormControl
-  // makeStyles
 } from "@material-ui/core";
-import { Visibility, VisibilityOff } from "@material-ui/icons";
 import MonetizationOnIcon from "@material-ui/icons/MonetizationOn";
 import useStyles from "../styles/StylesSheet";
 import {axiosWithAuth} from "../helpers/axiosWithAuth";
 import { connect } from "react-redux";
-import {useHistory} from "react-router-dom";
 
 const defaultValues = {
   name: "",
@@ -41,10 +38,8 @@ const defaultErrors = {
 const AddItem = (state) => {
     const classes = useStyles();
     const [values, setValues] = useState(defaultValues);
-    const [formValues, setFormValues] = useState(defaultValues);
     const [helperText, setHelperText] = useState(defaultErrors);
     const priceValidate = values.price.match(/^\w{1,10}$/g);
-    const {push} = useHistory()
 
     const onChange = (evt) => {
         const { name, value } = evt.target;

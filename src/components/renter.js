@@ -1,15 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { axiosWithAuth } from "../helpers/axiosWithAuth";
-import axios from"axios";
 import {
-  Paper,
   Box,
-  Grid,
-  TextField,
-  Typography,
-  Button,
-  IconButton
-  // makeStyles
+  Grid
 } from "@material-ui/core";
 import userStyles from "../styles/UserStyles";
 import { connect } from "react-redux";
@@ -19,7 +12,6 @@ const Renter =(props)=>{
   // console.log(props.username);
     
   const classes = userStyles();
-  const bull = <span className={classes.bullet}>•</span>;
   const [itemData, setItemData]=useState([])
   // const [isRented, setIsRented]=useState(false);
     //getting data
