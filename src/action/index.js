@@ -1,3 +1,4 @@
+import { CardActions } from "@material-ui/core";
 import axios from"axios";
 import { axiosWithAuth } from "../helpers/axiosWithAuth";
 // import {useHistory} from "react-router-dom";
@@ -6,6 +7,7 @@ export const LOAD_ITEM_DATA = "LOAD_ITEM_DATA";
 export const LOGIN = "LOGIN";
 export const DELETE_ITEM="DELETE_ITEM";
 export const CLEAR_STATE="CLEAR_STATE";
+export const CHANGE_IS_RENTED="CHANGE_IS_RENTED;"
 
 export const loginNow = (values)=>{
     return(dispatch) => {
@@ -47,4 +49,10 @@ export const deleteItem = (item, owner) =>{
 
 export const clearState = () =>{
   return({type:CLEAR_STATE})
+}
+
+export const rentingState = (itemId) =>{
+  return(dispatch=>{
+    dispatch({type:CHANGE_IS_RENTED, payload:itemId})
+    })
 }

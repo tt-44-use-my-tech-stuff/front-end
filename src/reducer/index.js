@@ -1,14 +1,18 @@
 import {CLEAR_STATE, 
         LOAD_ITEM_DATA, 
         DELETE_ITEM,
+        CHANGE_IS_RENTED,
         LOGIN} from "../action";
 
 export const initialState = {
     username:'',
     userType:'',
     userId:0,
-    itemData:{}
+    itemData:{},
+    isRented:false, //used to be false/true
+    rentedId:0
 }
+
 
 const reducer = (state = initialState, action) =>
 {
@@ -28,6 +32,7 @@ const reducer = (state = initialState, action) =>
 
         case LOGIN:
             return{
+                ...state,
                 username: action.payload.username,
                 userType: action.payload.role_name,
                 userId: action.payload.user_id
@@ -37,6 +42,15 @@ const reducer = (state = initialState, action) =>
             return{
                 ...state,
                 itemData:{}
+            }
+
+        case CHANGE_IS_RENTED:
+            console.log("inside reducer: " + state.rentedId);
+            return{
+                ...state,
+                isRented:!state.isRented,
+                rentedId:action.payload
+                // rented:[...state.rented, action.payload]
             }
 
         default:

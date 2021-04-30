@@ -43,8 +43,6 @@ function App(props) {
           <Link to="/">home</Link>
           <Link to="/login">login</Link>
           {/* <Link to="/owner">Register</Link> */}
-          <Link to="/owner">Owner's Page</Link>
-          <Link to="/renter">Renter's Page</Link>
           <Link to="/Add">Add Page</Link>
           <Link to="/SignUp">SignUp Page</Link>
           <Link to="/login" onClick={logoutFunc}>logout</Link>
@@ -54,13 +52,13 @@ function App(props) {
 
  
         <Switch>
-        <Route exact path="/SignUp" component={SignUp}/>
-        <Route exact path="/Edit" component={Edit}/>
+          <Route exact path="/SignUp" component={SignUp}/>
+          <Route exact path="/Edit" component={Edit}/>
           <Route exact path="/Add" component={Add}/>
-          <Route exact path="/" component={Home}/>
           <Route  exact path="/renter" component={Renter}/>
           <Route exact path="/owner" component={Owner}/>
           <Route exact path="/login" component={LoginForm}/>
+          <Route exact path="/" component={Home}/>
         </Switch>
         </div>
       
